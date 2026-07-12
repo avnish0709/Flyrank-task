@@ -1,0 +1,53 @@
+CONTEXT: I'm building MallPark 360, a Smart Parking Management System 
+for a mall, currently in concept/design phase (DFD diagrams across 
+3 levels, RazorPay integration already planned). I want to add AI 
+features to the app itself and need to decide which parts should be 
+AI-powered vs. traditional rule-based logic.
+```
+
+DECISION TEST — apply this to any candidate feature:
+1. Is the decision pattern-based (predicting/recognizing/ranking) 
+   or rule-based (fixed if-X-then-Y logic)? Pattern-based → AI fits.
+2. Does it need to handle ambiguous/messy input (images, natural 
+   language, variable conditions)? If yes → AI fits.
+3. Can I justify the AI choice in one sentence to an examiner? If 
+   not, don't use AI there.
+```
+
+GOAL: A short, defensible AI scope — 1-2 AI features max, each with:
+- A one-line justification (why AI beats simpler logic here)
+- A defined data contract (input → output)
+- A build-vs-integrate call (train small model vs. call existing API)
+- A clear slot in the DFD (new process + data store/external entity)
+```
+
+WORK BREAKDOWN:
+1. Full feature inventory of the app (human-led — I know the scope)
+2. Sort each feature via the decision test (AI can draft, I review)
+3. Narrow to 1-2 AI features (human-led — my call, my timeline)
+4. Define data contracts for chosen features (AI can draft)
+5. Build vs. integrate decision per feature (human-led — depends on 
+   my skill level and time)
+6. Place into DFD (collaborative — AI drafts placement, I correct 
+   against actual diagram)
+7. Write one-line justifications myself (human-led — must be able 
+   to defend these live)
+```
+
+CANDIDATE AI FEATURES DISCUSSED SO FAR:
+- Slot demand prediction (ML, uses historical occupancy data)
+- License plate recognition (CV/OCR, entry-exit logging)
+- Dynamic pricing suggestions
+- Support chatbot (NLP)
+```
+
+FEATURES TO KEEP RULE-BASED (not AI):
+- Slot availability tracking (DB state)
+- Booking/reservation logic (deterministic)
+- Payment processing via RazorPay (must stay auditable, no AI)
+- Navigation to assigned slot (pathfinding algorithm)
+- Admin dashboard/reporting (aggregation/queries)
+```
+
+NEXT STEP: Walk through Step 1 — full feature inventory — for 
+MallPark 360.
