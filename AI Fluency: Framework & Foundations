@@ -1,0 +1,135 @@
+CONTEXT: I'm building MallPark 360, a Smart Parking Management System 
+for a mall, currently in concept/design phase (DFD diagrams across 
+3 levels, RazorPay integration already planned). I want to add AI 
+features to the app itself and need to decide which parts should be 
+AI-powered vs. traditional rule-based logic.
+```
+
+DECISION TEST — apply this to any candidate feature:
+1. Is the decision pattern-based (predicting/recognizing/ranking) 
+   or rule-based (fixed if-X-then-Y logic)? Pattern-based → AI fits.
+2. Does it need to handle ambiguous/messy input (images, natural 
+   language, variable conditions)? If yes → AI fits.
+3. Can I justify the AI choice in one sentence to an examiner? If 
+   not, don't use AI there.
+```
+
+GOAL: A short, defensible AI scope — 1-2 AI features max, each with:
+- A one-line justification (why AI beats simpler logic here)
+- A defined data contract (input → output)
+- A build-vs-integrate call (train small model vs. call existing API)
+- A clear slot in the DFD (new process + data store/external entity)
+```
+
+WORK BREAKDOWN:
+1. Full feature inventory of the app (human-led — I know the scope)
+2. Sort each feature via the decision test (AI can draft, I review)
+3. Narrow to 1-2 AI features (human-led — my call, my timeline)
+4. Define data contracts for chosen features (AI can draft)
+5. Build vs. integrate decision per feature (human-led — depends on 
+   my skill level and time)
+6. Place into DFD (collaborative — AI drafts placement, I correct 
+   against actual diagram)
+7. Write one-line justifications myself (human-led — must be able 
+   to defend these live)
+```
+
+CANDIDATE AI FEATURES DISCUSSED SO FAR:
+- Slot demand prediction (ML, uses historical occupancy data)
+- License plate recognition (CV/OCR, entry-exit logging)
+- Dynamic pricing suggestions
+- Support chatbot (NLP)
+```
+
+FEATURES TO KEEP RULE-BASED (not AI):
+- Slot availability tracking (DB state)
+- Booking/reservation logic (deterministic)
+- Payment processing via RazorPay (must stay auditable, no AI)
+- Navigation to assigned slot (pathfinding algorithm)
+- Admin dashboard/reporting (aggregation/queries)
+```
+
+NEXT STEP: Walk through Step 1 — full feature inventory — for 
+MallPark 360.
+
+CONTEXT: I'm a first-year AI/ML engineering student. I have an 
+assignment for an AI delegation course. The assignment brief is:
+
+1. Identify together the major tasks needed to complete your project.
+2. For each task, discuss:
+   - What specific skills, knowledge, or AI capabilities are needed?
+   - Which parts would benefit from uniquely human strengths?
+   - Which parts could leverage AI capabilities well?
+   - Where might collaboration have the most impact?
+   (This should be a genuine back-and-forth conversation — challenge 
+   assumptions, ask clarifying questions, don't just exchange 
+   statements.)
+3. Create a project plan with major tasks and delegation decisions.
+4. Save the plan to revisit later in the course.
+
+The assignment gave a menu of example project types to choose from:
+1. Research and summarize an emerging technology/trend
+2. Analyze a dataset for patterns and recommendations
+3. Compare products/services/approaches and recommend one
+4. Investigate a historical event, present engagingly
+5. Outline a short story with developed characters/plot
+6. Design a simple website structure with content
+7. Develop a concept for a product/service/experience
+8. Create a structured learning plan for a skill
+9. Build a resource collection on a topic
+10. Develop a tutorial/guide for a process you understand well
+11. Create a set of study materials to master a topic
+
+MY CHOSEN PROJECT: MallPark 360, a Smart Parking Management System 
+for a mall, already in concept/design phase (DFDs across 3 levels, 
+RazorPay payment integration planned). The assignment is being 
+applied to this existing project rather than a fresh pick from the 
+menu above.
+
+DECISION TEST for sorting features into AI vs. traditional logic:
+1. Is the decision pattern-based (predicting/recognizing/ranking) 
+   or rule-based (fixed if-X-then-Y)? Pattern-based → AI fits.
+2. Does it need ambiguous/messy input (images, language, variable 
+   conditions)? If yes → AI fits.
+3. Can I justify the AI choice in one sentence to an examiner? If 
+   not, don't use AI there.
+
+AI-FEATURE CANDIDATES IDENTIFIED SO FAR:
+- Slot demand prediction (ML, historical occupancy data)
+- License plate recognition (CV/OCR, entry-exit logging)
+- Dynamic pricing suggestions
+- Support chatbot (NLP)
+
+FEATURES TO KEEP RULE-BASED (not AI):
+- Slot availability tracking (DB state)
+- Booking/reservation logic (deterministic)
+- Payment processing via RazorPay (must stay auditable)
+- Navigation to assigned slot (pathfinding algorithm)
+- Admin dashboard/reporting (aggregation/queries)
+
+VISION DRAFT (for the project's success/meaning/vision prompts):
+- Success = a defensible AI scope (1-2 features) with clear 
+  justification, each with a data contract and DFD placement, and a 
+  one-page decision record I can defend live
+- Vision = AI used deliberately (only where rule-based logic 
+  genuinely can't do the job), not decoratively — money/safety-
+  critical paths stay simple and auditable
+- "What's meaningful to me" is still unanswered — this is a 
+  first-year AI/ML student's first real exercise in AI-system design 
+  judgment, not just model-building, which matters for a career in 
+  AI — but the personal framing needs to come from me directly
+
+OPEN QUESTION — NOT YET RESOLVED:
+Does "major tasks needed to complete your project" (Step 1 of the 
+brief) mean:
+(a) The FULL MallPark 360 build end-to-end — DFDs, database design, 
+    booking logic, payment integration, coding, testing, deployment 
+    — with AI as one thread among several, OR
+(b) Just the AI-integration workstream already scoped above (feature 
+    inventory → decision test → DFD placement)?
+This needs to be resolved before Step 1 of the assignment can 
+properly start.
+
+NEXT STEP: Resolve the open question above, then do Step 1 — 
+identify the major tasks — as a genuine back-and-forth, not a list 
+dump, per the assignment's explicit instruction.
