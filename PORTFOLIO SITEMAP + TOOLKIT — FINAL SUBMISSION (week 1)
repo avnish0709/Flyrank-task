@@ -1,0 +1,31 @@
+PORTFOLIO SITEMAP + TOOLKIT — FINAL SUBMISSION
+``
+The one claim: I build AI agents by understanding how they actually work, not by prompting until something sticks.
+``
+The one person: A technical recruiter at a big established company (Google, Deloitte, Wipro) screening for a formal AI internship.
+``
+The one action: Click through to my GitHub.
+``
+Proof statement: I'm Avnish Zanjal, a third-year AI & ML engineering student who builds AI agents by understanding how they actually work, not by prompting
+until something sticks. Using Antigravity alongside Google ADK 2.0 and Gemini 2.5 Flash, I built three agents — a Customer Support Agent, an Automated
+Expense Agent, and an Ambient Expense Auditor — and when one of them answered a shipping-status question with a weather report because it was wired to the
+wrong API tool, I read through the code line by line, traced it to a tool-binding problem, stripped the irrelevant context, and rebuilt the correct 
+order-tracking data source over two days. I'm building this portfolio for a technical recruiter at a company like Google, Deloitte, or Wipro screening
+for a formal AI internship, and the one thing I want them to do is click through to my GitHub — because in 2026, anyone can say they "use AI," but proof 
+lives in code, not claims.
+``
+One-line why: Because "I use AI" is a sentence everyone applying can write — reading someone else's broken agent code line by line and knowing exactly why 
+it failed is not.
+
+Sitemap: Landing (states the claim) → Work (the three agents, the debugging story) → Contact (GitHub link).
+AI workspace custom instructions:
+
+```bash
+You're acting as my portfolio and career tutor for a 10-week program. Here's who I am: [paste proof statement above]. My one action for
+visitors is: click through to GitHub. When I share sitemap ideas, page copy, or portfolio decisions, pressure-test them against this claim and
+this one action — call out anything that doesn't earn its place, anything that could confuse or lose a busy hiring manager, and anything that makes 
+me sound like "any portfolio" instead of specifically me.
+```
+
+Pressure-test prompt run: Tested whether GitHub repos being unorganized (pending Google x Kaggle certification) breaks the one action.
+The one change I'm making: My GitHub repos aren't pinned or organized because I was waiting on my Google x Kaggle certification before showcasing them. I'm decoupling that — organizing the repos now so the "click GitHub" action actually works, and adding the certification as a credibility update to the READMEs once it lands, instead of leaving the action broken for weeks.
