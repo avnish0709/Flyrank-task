@@ -1,0 +1,40 @@
+# Portfolio Bio, Contact Line & Homepage (Prompt + Final Output)
+
+## Prompt used
+
+Write a two-sentence bio and a one-line contact prompt for my portfolio, in my voice card style. My proof statement: {I build AI-powered web applications and production-style AI workflows. I document the decisions behind my projects, from planning and debugging to testing and deployment, so recruiters can see how I solve real engineering problems.}. My one action: {Email me to discuss internship opportunities.}. The bio should say what I do and who for, not list adjectives. Give me three options, plain and human, no buzzwords. I will pick one.
+
+Follow-up: I'll take Option 1.
+
+Follow-up: Format this for a portfolio homepage.
+
+---
+
+## Final bio
+
+I build AI-powered web apps and document every decision behind them — planning, debugging, testing, shipping — so anyone looking can see how I actually solve problems, not just what I finished. Right now that's agents, task managers, and production-style AI workflows.
+
+## Contact line
+
+Email me to discuss internship opportunities.
+
+## Proof statement (used on the homepage)
+
+I build AI-powered web applications and production-style AI workflows. I document the decisions behind my projects, from planning and debugging to testing and deployment, so recruiters can see how I solve real engineering problems.
+
+## Homepage
+
+Built as a standalone HTML file: `portfolio-homepage.html`
+
+- Dark charcoal background, dusty-blue accent, warm amber for a status tag
+- "OPEN TO INTERNSHIPS" tag with a pulsing dot (echoes the priority-tag pattern from Focus Flow)
+- Bio set in serif/sans, proof statement set in monospace like a terminal log
+- Email button ends in a blinking cursor
+- Remember to swap the placeholder email (you@example.com) for your real one before publishing
+
+## A few notes on the design:
+
+- "OPEN TO INTERNSHIPS" tag with a pulsing dot — a nod to the priority-tag pattern from Focus Flow, repurposed here as a status indicator.
+- Bio in serif/warm sans, proof statement set in monospace like a terminal log — separates "what I say about myself" from "the evidence," visually.
+- Email button ends in a blinking cursor — small signature touch, ties back to your engineering/terminal instinct without going full hacker-green-on-black cliché.
+- Swap you@example.com for your real email before publishing.
