@@ -1,0 +1,51 @@
+# Avnish Zanjal — Profile Content
+
+Compiled drafts for LinkedIn / GitHub profile use.
+
+---
+
+## Headline (under name)
+
+AI & ML Engineering Student | Intern at FlyRank AI | Building AI Agents with Google ADK & Gemini
+
+**Alternates:**
+- AI Engineering Student · Intern at FlyRank AI · I build agents, then I test them until they hold up
+- Third-Year AI & ML Student | FlyRank AI Intern | Agent Builder — Google ADK 2.0, Gemini 2.5 Flash
+
+---
+
+## Summary / Bio
+
+At FlyRank AI, I build agents — and I test them until they actually work.
+
+I'm a third-year AI & ML engineering student. This year I built three agents — customer support, expense automation, and an ambient expense auditor — using Google ADK 2.0 and Gemini 2.5 Flash through the Kaggle x Google 5-Day AI Agent Course. One of them once answered a shipping question with a weather report — wrong tool got called. I traced it line by line, found the mismatch, fixed the routing. Took two days. Worth it.
+
+I care about getting the details right, not just shipping something that looks done. Open to conversations about AI engineering, agent systems, or where this space is headed.
+
+---
+
+## Resume Bullet Points
+
+- **Built three AI agents** (customer support, expense automation, ambient expense auditor) using Google ADK 2.0 and Gemini 2.5 Flash, completed through the Kaggle x Google 5-Day AI Agent Course.
+- **Debugged a tool-routing failure** where an agent returned weather data for a shipping-status query; traced the issue line by line and fixed the mismatched API binding in 2 days.
+- **Tested and improved agent reliability** by identifying gaps between intended tool calls and actual routing behavior, then correcting the logic to return accurate responses.
+
+---
+
+## Outreach Message (example — sent to Alen Malkoč, FlyRank AI)
+
+Hi Alen,
+
+I build agents, then I break them on purpose to find what fails first — that's the part of AI engineering I care about most.
+
+Over the past few weeks I built three AI agents (customer support, expense automation, and an ambient expense auditor) using Google ADK 2.0 and Gemini 2.5 Flash, through the Kaggle x Google 5-Day AI Agent Course. One of them once answered a shipping-status question with a weather report — the wrong tool got called. I traced it line by line, found the mismatched API binding, and fixed it in two days.
+
+I'm a third-year AI & ML engineering student, currently interning at FlyRank AI. I'm looking for an internship or entry-level role where I can keep building and testing systems like this at a higher bar. If there's an opening on your team, I'd like to be considered — and I'm happy to share the repos or walk through what I found if that's useful.
+
+Avnish Zanjal
+
+---
+
+## Voice Card (used to draft all of the above)
+
+Direct, warm, plain, specific. No buzzwords ("passionate," "results-driven," "dynamic"). Short sentences. Preferred words: built, tested, improved. Rewrite anything that sounds like a generic AI bio the way a real person would say it to a friend.
