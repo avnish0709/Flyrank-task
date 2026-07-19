@@ -1,0 +1,35 @@
+# Focus Flow — Case Study (Prompt + Final Output)
+
+## Prompt used
+
+Using my answers above and my voice card, write this project as a short case in three beats: the problem, what I did and decided, and what came of it (keep my honest, even small, result). Use only what I told you, do not inflate anything, and keep my words where you can. End with one line on what I would do differently next time. Then list any spot where you had to guess, so I can fix it.
+
+Follow-up: Now write a version that opens with the screen-time number, aimed at Eldin.
+
+Follow-up: Tighten this to 300 words.
+
+---
+
+## Final case study (~300 words, opens with screen-time number)
+
+**Focus Flow**
+
+7-8 hours a day of screen time, down to 4-5. One day, 3 hours 14 minutes. That's not a projection — that's my own phone, before and after I built this.
+
+**The problem.** I get distracted. So do a lot of people. I wanted to know exactly how many hours I was spending on productive work versus how many I was losing — so I built Focus Flow to answer that for myself first.
+
+**What I did.** I designed it from scratch. Most task managers use red or orange — I used a nature rain background instead, calmer, and it helped me focus. A task bar with three priority levels: high, medium, low. A Pomodoro timer, 45 on and 15 off by default, adjustable by the user. A music session with four options — Lofi Girl, Lofi Boy, a 10-hour rain sound, or a custom playlist. Both timers minimize and move around the screen. It started small: a chat-feature task in Vercel v0 during my internship at FlyRank AI. I finished it and decided to build the whole thing out — Next.js 14, TypeScript, Tailwind CSS.
+
+I also tried an AI agent for task entry — type "/task xyz /priority medium" and it sorts it for you, or "/song" to loop a track. It didn't work. I'm still working on it.
+
+**What came of it.** It works. I've used it many times and I'm about to deploy it. Even at 5-6 hours of study a day, I wasn't satisfied — my own target kept going up.
+
+Next time, I'd add a live 4K rain wallpaper, get the chatbot actually working, and build a stopwatch to track total study hours in one continuous count.
+
+---
+
+## Guesses made (flagged for review)
+
+- Opened with the screen-time numbers as a hook — the numbers are yours, the choice to lead with them was mine, per your framing request.
+- Connective phrasing like "started small" and "I finished it and decided to build the whole thing out" is structural, not your exact words.
+- Still unknown: what specifically matters to Eldin (technical depth, user impact, initiative) — the case study isn't tailored to his priorities yet since that wasn't answered.
