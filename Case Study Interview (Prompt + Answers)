@@ -1,0 +1,29 @@
+# Focus Flow — Case Study Interview (Prompt + Answers)
+
+## Original prompt
+
+I want to turn one real project into a case study. Interview me before you write anything. The project: {Focus Flow — an AI-powered productivity and task management web application.}. Who needs to be convinced: {Eldin}. Ask me one question at a time: what problem or goal it started from, what I actually did and decided, what I tried that did not work, what the result was (even small), and what I would do differently. Do not write yet. Start.
+
+---
+
+## Q1: What problem or goal did it start from?
+
+The goal was to be productive; the problem was distraction. I created this to be more productive — trying to solve how many hours I could put into productive tasks instead of distraction, and how many hours into study or work-related tasks. Many people face distraction, and I was targeting those.
+
+## Q2: What did you actually do and decide?
+
+I decided to make my own productivity task manager. Traditional task manager apps typically use an orange or red background — I made a nature rain background instead, because it's more peaceful and increases productivity. There's a task bar where tasks can be arranged with priority: high, medium, or low. I implemented the Pomodoro technique (45 min intense focus / 15 min break, repeating), customizable by the user (e.g. 50 min focus / 10 min break). I also implemented a music session with 4 options: Lofi Girl, Lofi Boy, a 10-hour rain sound effect, and a custom playlist option. The study session timer and the music timer are both minimizable and movable on the site. The specific call I made: I was using Vercel v0 as an intern at FlyRank AI, my task was to build a small chat feature in Vercel, I did it and thought "let's make this a project." I used Next.js 14 with App Router, TypeScript, and Tailwind CSS, and designed the project from scratch.
+
+## Q3: What did you try that did not work?
+
+I tried to implement a chatbot in the project that made task entry simpler — instead of typing tasks manually, type to the AI agent like "/task 1. xyz /priority medium" to add multiple tasks at once and have them arranged accordingly. Also "/song" to play a specific song in loop (e.g. rain sound effect). It failed and didn't work — I'm still working on it.
+
+## Q4: What was the result, even small?
+
+[Screenshot of the working app provided — task manager centered, music session top-right (Lofi Girl/Lofi Boy/Rain 10hr/Link), Pomodoro study timer bottom-right with presets (45/15, 60/13, custom), all on the nature rain background. AI chatbot planned for the left side, retractable to reduce distraction.]
+
+The website is working very well. I've used it many times and am about to deploy it. My mobile screen time was 7-8 hrs a day; it has gradually reduced to 4-5 hrs a day, and I've seen a day as low as 3 hrs 14 min. Even when studying 5-6 hrs, I wasn't satisfied, so my study time target increased.
+
+## Q5: What would you do differently?
+
+I would have added a live 4K wallpaper of rain in the background, added a working chatbot, and added a stopwatch for a continuous timer to check how many hours I've put into study time.
