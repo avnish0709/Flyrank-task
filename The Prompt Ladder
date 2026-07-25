@@ -1,0 +1,33 @@
+### Axiom (Gadget Store Demo) — Case Study (Prompt + Final Output)
+
+## Prompts used :- 
+- Build a website. → clarified target: e-commerce
+- e commerce website
+- Clarifying answer: Electronics/gadgets
+- Now keep everything and add context. → clarified as: add an About section
+- Clarifying answer: An "About" section on the site (who Axiom is, why it exists)
+
+---
+
+### What this actually is
+
+A demo e-commerce site, not a real build of yours. You set the one real constraint (electronics/gadgets) and the one real addition (About section). Everything else — the "Axiom" name, the six-product catalog, the specs, the About copy, the workbench-blueprint visual design — is content I generated to fill out a working example. None of it describes a real product, team, or business.
+
+The problem
+
+You wanted to test what a single-line prompt ("build a website") could produce once given a real subject, versus staying vague.
+
+What was decided
+
+You picked the category: electronics/gadgets. From there I made the design and content calls — a workbench/blueprint visual system, a fictional brand called "Axiom," six sample products with invented specs, and (on your second prompt) an About section explaining a fictional reason the store exists. None of those specifics came from you.
+
+What came of it
+
+A working, typechecked Next.js site with a product grid, category filter, client-side cart count, and an About section — useful as a template or reference, not as a real storefront. If you want to turn this into something real, the catalog, brand name, and About copy all need to be replaced with actual products and actual reasons.
+
+Next time: giving a real product line or business detail up front (even a placeholder like "let's say it sells refurbished laptops") would let the copy be grounded instead of invented.
+
+Guesses made (flagged for review)
+Brand name "Axiom," tagline, and all About-page copy — entirely invented, not sourced from you
+All six products and their specs — invented for demo purposes, not real inventory
+Visual design direction (workbench/blueprint palette, Space Grotesk/Plex fonts) — my aesthetic decision, not requested
