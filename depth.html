@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DEPTH</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --abyss:#071619;
+    --panel:#0C2024;
+    --panel2:#0E2429;
+    --glow:#3FE8D0;
+    --glow-dim:#2A8F82;
+    --foam:#DCEDEB;
+    --muted:#5E8A8C;
+    --line:rgba(220,237,235,0.10);
+    --radius:3px;
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--abyss);
+    color:var(--foam);
+    font-family:'Work Sans',sans-serif;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .container{max-width:var(--maxw); margin:0 auto; padding:0 48px;}
+  h1,h2,h3{font-family:'Instrument Serif',serif; font-weight:400;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(7,22,25,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between; padding:24px 0;}
+  .logo{font-family:'Instrument Serif',serif; font-size:24px; letter-spacing:0.02em; color:var(--foam);}
+  .logo em{color:var(--glow); font-style:normal;}
+  .navlinks{display:flex; gap:40px; list-style:none;}
+  .navlinks a{
+    color:var(--muted); text-decoration:none; font-size:12px; letter-spacing:0.12em;
+    text-transform:uppercase; font-weight:500; transition:all 160ms ease-out;
+  }
+  .navlinks a:hover{color:var(--foam);}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:14px 30px; font-size:12px; font-weight:600; letter-spacing:0.1em;
+    text-transform:uppercase; border-radius:var(--radius); cursor:pointer;
+    border:1px solid transparent; transition:all 160ms ease-out; text-decoration:none;
+  }
+  .btn-solid{background:var(--glow); color:var(--abyss);}
+  .btn-solid:hover{filter:brightness(1.12); box-shadow:0 0 24px rgba(63,232,208,0.28);}
+  .btn-outline{background:transparent; color:var(--foam); border:1px solid var(--muted);}
+  .btn-outline:hover{border-color:var(--glow); color:var(--glow);}
+
+  section{padding:130px 0; border-bottom:1px solid var(--line);}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--glow); margin-bottom:18px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:''; width:16px; height:1px; background:var(--glow);}
+
+  /* ===== HERO ===== */
+  .hero{padding-top:100px; padding-bottom:110px;}
+  .hero-grid{display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;}
+  .hero h1{
+    font-size:clamp(46px,5.6vw,74px); font-weight:400; line-height:1.04; letter-spacing:0.005em;
+    color:var(--foam);
+  }
+  .hero h1 em{font-style:italic; color:var(--glow);}
+  .hero p{margin-top:26px; max-width:420px; font-size:16px; line-height:1.7; color:var(--muted);}
+  .hero-actions{margin-top:40px; display:flex; gap:16px;}
+
+  .stat-row{display:flex; gap:44px; margin-top:56px; padding-top:32px; border-top:1px solid var(--line);}
+  .stat b{display:block; font-family:'Instrument Serif',serif; font-size:28px; color:var(--foam); font-weight:400;}
+  .stat span{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; color:var(--muted); text-transform:uppercase;}
+
+  /* bathymetric contour hero graphic — signature visual */
+  .depth-wrap{position:relative; aspect-ratio:1/1;}
+  .depth-wrap svg{width:100%; height:100%;}
+  .depth-label{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; color:var(--muted); text-transform:uppercase;}
+  .depth-label.tl{top:4%; left:2%;}
+  .depth-label.br{bottom:4%; right:2%; text-align:right;}
+
+  /* ===== BENEFITS ===== */
+  .section-head{max-width:580px; margin-bottom:64px;}
+  .section-head h2{font-size:38px; font-weight:400; line-height:1.2; color:var(--foam);}
+  .benefit-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
+  .benefit-card{background:var(--abyss); padding:36px 28px; transition:all 160ms ease-out;}
+  .benefit-card:hover{background:var(--panel);}
+  .benefit-dot{width:8px; height:8px; border-radius:50%; background:var(--glow); margin-bottom:24px; box-shadow:0 0 10px rgba(63,232,208,0.5);}
+  .benefit-card h3{font-size:18px; font-weight:400; color:var(--foam); margin-bottom:12px;}
+  .benefit-card p{font-size:13px; line-height:1.7; color:var(--muted);}
+
+  /* ===== FORMULATION — distillation profile ===== */
+  .dist-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:80px; align-items:center;}
+  .dist-panel{border:1px solid var(--line); border-radius:var(--radius); background:var(--panel2); padding:40px;}
+  .dist-panel-top{display:flex; justify-content:space-between; margin-bottom:36px;}
+  .dist-panel-top div:last-child{text-align:right;}
+  .dist-row{margin-bottom:26px;}
+  .dist-row-top{display:flex; justify-content:space-between; margin-bottom:10px; font-size:13px;}
+  .dist-row-top span:first-child{color:var(--foam);}
+  .dist-row-top span:last-child{color:var(--glow);}
+  .dist-bar{height:4px; background:rgba(220,237,235,0.08); border-radius:2px; overflow:hidden;}
+  .dist-bar-fill{height:100%; background:var(--glow); border-radius:2px;}
+
+  .dist-copy p{font-size:16px; line-height:1.75; color:var(--muted); max-width:480px;}
+  .dist-copy p + p{margin-top:20px;}
+
+  /* ===== CTA ===== */
+  .cta{border-bottom:none; padding:140px 0 120px;}
+  .cta-box{
+    text-align:center; max-width:620px; margin:0 auto; padding:70px 56px;
+    border:1px solid var(--line); border-radius:var(--radius);
+    background:radial-gradient(120% 100% at 50% 0%, rgba(63,232,208,0.08), transparent 60%);
+  }
+  .cta-box h2{font-size:38px; font-weight:400; color:var(--foam); line-height:1.2;}
+  .cta-box p{margin:20px auto 36px; max-width:380px; font-size:14.5px; line-height:1.7; color:var(--muted);}
+
+  footer{padding:36px 0;}
+  .footer-row{display:flex; justify-content:space-between; align-items:center;}
+  .footer-row span{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; color:var(--muted); text-transform:uppercase;}
+
+  @media (max-width:900px){
+    .hero-grid, .dist-grid{grid-template-columns:1fr; gap:56px;}
+    .benefit-grid{grid-template-columns:repeat(2,1fr);}
+    .navlinks{display:none;}
+    section{padding:80px 0;}
+    .container{padding:0 24px;}
+    .dist-panel{padding:28px;}
+  }
+  :focus-visible{outline:1px solid var(--glow); outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">DEPTH<em>.</em></div>
+      <ul class="navlinks">
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#formulation">Extraction</a></li>
+        <li><a href="#cta">Order</a></li>
+      </ul>
+      <a href="#cta" class="btn btn-outline" style="padding:10px 24px;">Shop</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Cold-Water Extraction · 2000m</span>
+        <h1>Drawn from<br>the <em>quiet</em> deep.</h1>
+        <p>DEPTH is triglyceride-form omega-3, cold-extracted from wild cold-water species and molecularly distilled six times over. No fish burps, no oxidation, no shortcuts on depth.</p>
+        <div class="hero-actions">
+          <a href="#cta" class="btn btn-solid">Order Now</a>
+          <a href="#formulation" class="btn btn-outline">View Extraction</a>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b>1250mg</b><span>EPA + DHA</span></div>
+          <div class="stat"><b>6x</b><span>Distilled</span></div>
+          <div class="stat"><b>2000m</b><span>Source Depth</span></div>
+        </div>
+      </div>
+      <div class="depth-wrap">
+        <svg viewBox="0 0 400 400">
+          <path d="M40,80 C120,60 280,60 360,80" fill="none" stroke="#173539" stroke-width="1"/>
+          <path d="M30,140 C120,110 280,110 370,140" fill="none" stroke="#173539" stroke-width="1"/>
+          <path d="M25,200 C120,165 280,165 375,200" fill="none" stroke="#1f4448" stroke-width="1"/>
+          <path d="M35,260 C130,235 270,235 365,260" fill="none" stroke="#1f4448" stroke-width="1"/>
+          <path d="M55,320 C140,300 260,300 345,320" fill="none" stroke="#173539" stroke-width="1"/>
+          <path d="M25,200 C120,165 280,165 375,200" fill="none" stroke="#3FE8D0" stroke-width="1" stroke-dasharray="2 8" opacity="0.5"/>
+          <circle cx="200" cy="200" r="4" fill="#3FE8D0"/>
+          <circle cx="200" cy="200" r="14" fill="none" stroke="#3FE8D0" stroke-width="0.75" opacity="0.5"/>
+          <circle cx="200" cy="200" r="26" fill="none" stroke="#3FE8D0" stroke-width="0.5" opacity="0.25"/>
+          <line x1="200" y1="200" x2="200" y2="30" stroke="#2A8F82" stroke-width="0.5" stroke-dasharray="1 4" opacity="0.6"/>
+        </svg>
+        <span class="depth-label tl">SOURCE COORDINATES<br>LOGGED</span>
+        <span class="depth-label br">-2000M<br>MSL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="benefits">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Why It Works</span>
+      <h2>Purity comes from where you draw it, and how little you touch it.</h2>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="benefit-dot"></div>
+        <h3>Cold-Chain Sourced</h3>
+        <p>Never above 4°C from catch to capsule, preserving the oil before it oxidizes.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-dot"></div>
+        <h3>Triglyceride Form</h3>
+        <p>Absorbed up to 70% better than the ethyl-ester form used in most fish oil.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-dot"></div>
+        <h3>Heavy-Metal Screened</h3>
+        <p>Every batch tested below detection limits for mercury, lead, and PCBs.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-dot"></div>
+        <h3>No Aftertaste</h3>
+        <p>Enteric-coated to release past the stomach, not into it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formulation">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Extraction Profile</span>
+      <h2>Six passes. One measurable result.</h2>
+    </div>
+    <div class="dist-grid">
+      <div class="dist-panel">
+        <div class="dist-panel-top">
+          <div>
+            <div style="font-family:'Instrument Serif',serif; font-size:18px; color:var(--foam);">Per Capsule</div>
+            <div class="mono" style="font-size:10px; color:var(--muted); margin-top:4px;">BATCH DP-0725</div>
+          </div>
+          <div>
+            <div style="font-family:'Instrument Serif',serif; font-size:18px; color:var(--glow);">1250mg</div>
+            <div class="mono" style="font-size:10px; color:var(--muted); margin-top:4px;">TOTAL OMEGA-3</div>
+          </div>
+        </div>
+        <div class="dist-row">
+          <div class="dist-row-top"><span>EPA</span><span>650mg</span></div>
+          <div class="dist-bar"><div class="dist-bar-fill" style="width:65%;"></div></div>
+        </div>
+        <div class="dist-row">
+          <div class="dist-row-top"><span>DHA</span><span>450mg</span></div>
+          <div class="dist-bar"><div class="dist-bar-fill" style="width:45%;"></div></div>
+        </div>
+        <div class="dist-row" style="margin-bottom:0;">
+          <div class="dist-row-top"><span>Other Omega-3s</span><span>150mg</span></div>
+          <div class="dist-bar"><div class="dist-bar-fill" style="width:15%;"></div></div>
+        </div>
+      </div>
+      <div class="dist-copy">
+        <p>Crude oil is drawn from cold-water catch and moves directly into molecular distillation — a low-heat process under vacuum that separates the oil from contaminants without breaking down the fatty acid structure.</p>
+        <p>Six passes bring purity past 99%, verified by an independent lab before the oil is encapsulated. Nothing is added back to mask the process.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="cta">
+  <div class="container">
+    <div class="cta-box">
+      <span class="eyebrow" style="justify-content:center;">Begin</span>
+      <h2>Start your first month.</h2>
+      <p>One bottle, 60 capsules, batch report included. Cancel anytime before your next shipment.</p>
+      <a href="#" class="btn btn-solid">Order DEPTH — 60 Capsules</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <span>© DEPTH MARINE SCIENCES</span>
+      <span>EXTRACTION LOG / V1</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

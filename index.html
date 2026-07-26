@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaFuel - Premium Nutrition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--c1:#081B33;--c2:#0EA5E9;--c3:#38BDF8;--bg:#F4F8FB;--glass:rgba(255,255,255,.18);--radius:22px;--maxw:1200px;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Inter,sans-serif;background:linear-gradient(135deg,#081B33,#0B3058);color:#fff}
+.container{width:min(92%,var(--maxw));margin:auto}
+section{padding:90px 0}
+.hero{min-height:100vh;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:center;gap:60px}
+.badge{display:inline-block;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.1);backdrop-filter:blur(15px);margin-bottom:25px}
+h1{font-family:"Chakra Petch",sans-serif;font-size:4rem;line-height:1.1}
+.hero p{margin:25px 0;font-size:1.15rem;color:#d7e5f4;line-height:1.7}
+.btn{display:inline-block;padding:16px 36px;background:linear-gradient(45deg,var(--c2),var(--c3));border-radius:999px;color:#fff;text-decoration:none;font-weight:700;transition:.35s}
+.btn:hover{transform:translateY(-4px);box-shadow:0 15px 35px rgba(0,0,0,.35)}
+.product{background:var(--glass);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.2);padding:50px;border-radius:var(--radius);text-align:center}
+.product img{width:100%;max-width:380px}
+.benefits{background:#F7FBFF;color:#111}
+.title{font-family:"Chakra Petch";font-size:2.6rem;text-align:center;margin-bottom:60px}
+.grid,.ing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+.card{background:#fff;padding:35px;border-radius:var(--radius);box-shadow:0 10px 35px rgba(0,0,0,.08);transition:.3s}
+.card:hover{transform:translateY(-8px)}
+.ingredients{background:linear-gradient(120deg,#081B33,#103A68)}
+.ing{background:rgba(255,255,255,.12);backdrop-filter:blur(18px);padding:30px;border-radius:var(--radius);text-align:center}
+.ing span{font-size:3rem}
+.cta{background:#F7FBFF;color:#111;text-align:center}
+.cta-box{background:linear-gradient(135deg,#0EA5E9,#0284C7);color:#fff;padding:60px;border-radius:var(--radius)}
+footer{padding:30px;text-align:center;background:#061220;color:#9fb6cc}
+@media(max-width:768px){h1{font-size:2.8rem}.title{font-size:2rem}.hero{text-align:center}}
+</style>
+</head>
+<body>
+<section class="hero">
+<div class="container"><div class="hero-grid">
+<div>
+<div class="badge">⚡ Premium Nutrition</div>
+<h1>Fuel Your Body.<br>Power Your Life.</h1>
+<p>Experience clean energy, better recovery, and premium ingredients designed for athletes, professionals, and everyday champions.</p>
+<a href="#buy" class="btn">Order Now</a>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?w=700" alt="Product">
+</div>
+</div></div>
+</section>
+
+<section class="benefits">
+<div class="container">
+<h2 class="title">Why Choose NovaFuel?</h2>
+<div class="grid">
+<div class="card"><h3>⚡ Instant Energy</h3><p>Natural ingredients provide long-lasting energy without crashes.</p></div>
+<div class="card"><h3>🛡 Strong Immunity</h3><p>Packed with essential vitamins and antioxidants.</p></div>
+<div class="card"><h3>💪 Faster Recovery</h3><p>Supports muscles after workouts and intense activities.</p></div>
+</div>
+</div>
+</section>
+
+<section class="ingredients">
+<div class="container">
+<h2 class="title">Premium Ingredients</h2>
+<div class="ing-grid">
+<div class="ing"><span>🌿</span><h3>Ashwagandha</h3><p>Supports focus and stress management.</p></div>
+<div class="ing"><span>🍋</span><h3>Vitamin C</h3><p>Boosts immunity and daily wellness.</p></div>
+<div class="ing"><span>⚡</span><h3>Electrolytes</h3><p>Hydration for all-day performance.</p></div>
+</div>
+</div>
+</section>
+
+<section class="cta" id="buy">
+<div class="container">
+<div class="cta-box">
+<h2>Ready to Upgrade Your Health?</h2>
+<p>Join thousands of satisfied customers who trust NovaFuel every day.</p>
+<a href="#" class="btn">Get Started</a>
+</div>
+</div>
+</section>
+
+<footer>© 2026 NovaFuel • Crafted with ❤️ using HTML & CSS</footer>
+</body>
+</html>

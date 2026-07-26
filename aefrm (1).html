@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AEFRM</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Chakra+Petch:wght@400;500;600;700&family=Inter:wght@300;400;500&family=Alumni+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --c1:#E9ECEC;
+    --c2:#C9D2D4;
+    --c3:#8C9A9E;
+    --c4:#44545B;
+    --c5:#11171B;
+    --radius:4px;
+    --maxw:1180px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:linear-gradient(180deg,
+      var(--c3) 0%,
+      var(--c4) 22%,
+      #2a353b 45%,
+      #191f24 68%,
+      var(--c5) 100%);
+    font-family:'Inter',sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+    background:
+      radial-gradient(60% 40% at 15% 8%, rgba(233,236,236,0.10), transparent 60%),
+      radial-gradient(50% 35% at 85% 30%, rgba(233,236,236,0.05), transparent 65%),
+      radial-gradient(70% 50% at 50% 90%, rgba(0,0,0,0.35), transparent 70%);
+    mix-blend-mode:overlay;
+  }
+
+  .container{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 48px;
+    position:relative;
+    z-index:2;
+  }
+
+  h1,h2,h3,nav,.btn,.eyebrow{
+    font-family:'Zen Kaku Gothic New','Chakra Petch',sans-serif;
+    text-transform:uppercase;
+  }
+
+  .tiny{
+    font-family:'Alumni Sans SC',sans-serif;
+    font-size:6px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    line-height:1.6;
+    position:absolute;
+  }
+
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(140,154,158,0.35);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(17,23,27,0.16);
+  }
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:26px 0;
+  }
+  .logo{
+    font-weight:700;
+    font-size:20px;
+    letter-spacing:0.32em;
+    color:var(--c5);
+  }
+  .navlinks{display:flex; gap:48px; list-style:none;}
+  .navlinks a{
+    color:var(--c5);
+    opacity:0.72;
+    text-decoration:none;
+    font-size:12px;
+    letter-spacing:0.22em;
+    font-weight:500;
+    transition:all 160ms ease-out;
+    border-bottom:1px solid transparent;
+    padding-bottom:4px;
+  }
+  .navlinks a:hover{
+    opacity:1;
+    border-bottom:1px solid var(--c5);
+  }
+
+  section{
+    padding:140px 0;
+    position:relative;
+    z-index:2;
+  }
+
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:0.34em;
+    font-weight:600;
+    margin-bottom:20px;
+    display:inline-block;
+  }
+  .eyebrow::before{
+    content:'';
+    display:inline-block;
+    width:20px;
+    height:1px;
+    background:currentColor;
+    margin-right:12px;
+    vertical-align:middle;
+    opacity:0.6;
+  }
+
+  .hero, header{ color:var(--c5); }
+  .zone-dark, .zone-dark h2, .zone-dark h3{ color:var(--c1); }
+
+  .hero{ padding-top:110px; padding-bottom:130px; }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr 0.82fr;
+    gap:80px;
+    align-items:center;
+  }
+  .hero .eyebrow{ color:var(--c5); opacity:0.75; }
+  .hero h1{
+    font-size:clamp(40px,5vw,62px);
+    font-weight:700;
+    letter-spacing:0.02em;
+    line-height:1.1;
+    color:var(--c5);
+  }
+  .hero h1 span{ color:rgba(17,23,27,0.5); }
+  .hero p{
+    margin-top:26px;
+    max-width:420px;
+    font-size:15px;
+    line-height:1.75;
+    color:rgba(17,23,27,0.78);
+    font-weight:400;
+  }
+  .hero-actions{ margin-top:42px; display:flex; gap:16px; align-items:center; }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:16px 34px;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.22em;
+    border-radius:var(--radius);
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:all 160ms ease-out;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .btn-dark{ background:var(--c5); color:var(--c1); }
+  .btn-dark:hover{ filter:brightness(1.3); }
+  .btn-dark-outline{ background:transparent; color:var(--c5); border:1px solid rgba(17,23,27,0.4); }
+  .btn-dark-outline:hover{ border-color:var(--c5); filter:brightness(0.9); }
+
+  .btn-light{ background:var(--c1); color:var(--c5); }
+  .btn-light:hover{ filter:brightness(0.88); }
+
+  .frame-wrap{ position:relative; }
+  .packshot{
+    aspect-ratio:3/4;
+    border-radius:var(--radius);
+    background:rgba(17,23,27,0.14);
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(17,23,27,0.28);
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .packshot img{
+    width:100%; height:100%; object-fit:cover;
+    filter:grayscale(1) contrast(1.08) brightness(0.95);
+    mix-blend-mode:luminosity;
+  }
+  .packshot .placeholder-text{
+    font-family:'Zen Kaku Gothic New',sans-serif;
+    font-size:11px;
+    letter-spacing:0.3em;
+    color:var(--c5);
+    opacity:0.6;
+    text-align:center;
+    padding:24px;
+    text-transform:uppercase;
+  }
+  .packshot .tiny{ color:var(--c5); opacity:0.55; }
+  .frame-corner-tl{ top:14px; left:14px; }
+  .frame-corner-br{ bottom:14px; right:14px; text-align:right; }
+  .frame-bottom-c{ bottom:14px; left:50%; transform:translateX(-50%); text-align:center; }
+  .hero .tiny.frame-bottom-c{ position:static; transform:none; display:block; margin-top:12px; color:rgba(17,23,27,0.55); text-align:center; }
+
+  .section-head{ max-width:560px; margin-bottom:72px; }
+  .section-head h2{
+    font-size:32px;
+    font-weight:700;
+    letter-spacing:0.03em;
+    line-height:1.2;
+  }
+  .zone-dark .eyebrow{ color:var(--c3); }
+
+  .benefit-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:rgba(233,236,236,0.1);
+    border:1px solid rgba(233,236,236,0.1);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .benefit-card{
+    background:rgba(233,236,236,0.03);
+    backdrop-filter:blur(6px);
+    padding:40px 30px;
+    position:relative;
+    transition:all 160ms ease-out;
+  }
+  .benefit-card:hover{ background:rgba(233,236,236,0.07); }
+  .benefit-index{
+    font-family:'Zen Kaku Gothic New',sans-serif;
+    font-size:11px;
+    letter-spacing:0.2em;
+    color:var(--c3);
+    margin-bottom:26px;
+  }
+  .benefit-card h3{
+    font-size:15px; font-weight:700; letter-spacing:0.06em;
+    color:var(--c1); margin-bottom:14px;
+  }
+  .benefit-card p{
+    font-size:13px; line-height:1.7; color:var(--c2); font-weight:300;
+  }
+
+  .formulation-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:90px;
+    align-items:start;
+  }
+  .ingredient-visual{
+    aspect-ratio:1/1;
+    border-radius:var(--radius);
+    border:1px solid rgba(233,236,236,0.14);
+    background:
+      repeating-linear-gradient(0deg, rgba(233,236,236,0.04) 0px, rgba(233,236,236,0.04) 1px, transparent 1px, transparent 40px),
+      repeating-linear-gradient(90deg, rgba(233,236,236,0.04) 0px, rgba(233,236,236,0.04) 1px, transparent 1px, transparent 40px),
+      rgba(233,236,236,0.02);
+    backdrop-filter:blur(6px);
+    position:relative;
+  }
+  .ingredient-visual .tiny{ color:var(--c3); }
+
+  .ingredient-list{ display:flex; flex-direction:column; }
+  .ingredient-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:24px 0; border-bottom:1px solid rgba(233,236,236,0.12);
+  }
+  .ingredient-row:first-child{ border-top:1px solid rgba(233,236,236,0.12); }
+  .ingredient-name{
+    font-family:'Zen Kaku Gothic New',sans-serif;
+    font-size:14px; letter-spacing:0.06em; color:var(--c1); font-weight:500;
+  }
+  .ingredient-dose{ font-size:12px; letter-spacing:0.08em; color:var(--c3); font-weight:400; }
+
+  .cta{ padding:150px 0 130px; }
+  .cta-box{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto;
+    position:relative;
+    padding:80px 60px;
+    border:1px solid rgba(233,236,236,0.15);
+    border-radius:var(--radius);
+    background:rgba(233,236,236,0.03);
+    backdrop-filter:blur(8px);
+  }
+  .cta-box h2{
+    font-size:34px; letter-spacing:0.02em; font-weight:700; color:var(--c1); line-height:1.2;
+  }
+  .cta-box p{
+    margin:22px auto 40px; max-width:380px; font-size:14px; line-height:1.7; color:var(--c2);
+  }
+
+  footer{ padding:40px 0; position:relative; z-index:2; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; }
+  .footer-row span{ font-size:11px; letter-spacing:0.18em; color:var(--c3); opacity:0.8; }
+
+  @media (max-width:900px){
+    .hero-grid, .formulation-grid{ grid-template-columns:1fr; gap:56px; }
+    .benefit-grid{ grid-template-columns:repeat(2,1fr); }
+    .navlinks{ display:none; }
+    section{ padding:90px 0; }
+    .container{ padding:0 24px; }
+  }
+
+  :focus-visible{ outline:1px solid var(--c1); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">AEFRM</div>
+      <ul class="navlinks">
+        <li><a href="#formulation">Formulation</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#cta">Order</a></li>
+      </ul>
+      <a href="#cta" class="btn btn-dark-outline" style="padding:12px 26px;">Shop</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Precision Formulation</span>
+        <h1>Built for the<br>output, not<br>the <span>ritual</span>.</h1>
+        <p>AEFRM is a single-formula system engineered for measurable output. No filler compounds, no proprietary blends — dosed at clinical thresholds and disclosed in full.</p>
+        <div class="hero-actions">
+          <a href="#cta" class="btn btn-dark">Start Protocol</a>
+          <a href="#formulation" class="btn btn-dark-outline">View Formula</a>
+        </div>
+      </div>
+      <div class="frame-wrap">
+        <div class="packshot">
+          <!-- Replace the div below with: <img src="YOUR_IMAGE_PATH" alt="AEFRM product"> -->
+          <div class="placeholder-text">Awaiting Packshot<br>Upload Product Image</div>
+          <span class="tiny frame-corner-tl">FIG.01 / PACKSHOT</span>
+          <span class="tiny frame-corner-br">AEFRM—001<br>MONO</span>
+        </div>
+        <span class="tiny frame-bottom-c">Rendered in single-channel grayscale</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="benefits" class="zone-dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Why It Works</span>
+      <h2>Every input accounted for. Nothing added for the label.</h2>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="benefit-index">01</div>
+        <h3>Clinical Dosing</h3>
+        <p>Each compound sits at or above the threshold shown in published trials — not a trace amount.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-index">02</div>
+        <h3>Third-Party Verified</h3>
+        <p>Batch-tested by an independent lab. Certificates published, not promised.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-index">03</div>
+        <h3>Zero Fillers</h3>
+        <p>No flow agents, no artificial binders, no undisclosed carriers in the capsule.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-index">04</div>
+        <h3>Single Protocol</h3>
+        <p>One formula, one dose, one time of day. Built to be followed, not managed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formulation" class="zone-dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The Formulation</span>
+      <h2>Full disclosure. Every gram accounted for.</h2>
+    </div>
+    <div class="formulation-grid">
+      <div class="ingredient-visual">
+        <span class="tiny frame-corner-tl">SCHEMATIC / COMPOUND MAP</span>
+        <span class="tiny frame-corner-br">SCALE 1:1</span>
+      </div>
+      <div class="ingredient-list">
+        <div class="ingredient-row">
+          <span class="ingredient-name">Magnesium Glycinate</span>
+          <span class="ingredient-dose">400 MG</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ingredient-name">L-Theanine</span>
+          <span class="ingredient-dose">200 MG</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ingredient-name">Rhodiola Rosea (3% Rosavins)</span>
+          <span class="ingredient-dose">300 MG</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ingredient-name">Vitamin D3</span>
+          <span class="ingredient-dose">4000 IU</span>
+        </div>
+        <div class="ingredient-row">
+          <span class="ingredient-name">Zinc Picolinate</span>
+          <span class="ingredient-dose">15 MG</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta zone-dark" id="cta">
+  <div class="container">
+    <div class="cta-box">
+      <span class="eyebrow" style="color:var(--c3);">Begin</span>
+      <h2>Run the protocol for 30 days.</h2>
+      <p>One shipment, one dose, full disclosure. Cancel anytime before your next cycle.</p>
+      <a href="#" class="btn btn-light">Order AEFRM — 30 Day Supply</a>
+      <span class="tiny frame-bottom-c" style="position:static; display:block; margin-top:28px; color:var(--c3);">Not evaluated by regulatory authority. Consult a physician.</span>
+    </div>
+  </div>
+</section>
+
+<footer class="zone-dark">
+  <div class="container">
+    <div class="footer-row">
+      <span>© AEFRM. ALL RIGHTS RESERVED.</span>
+      <span>MONO SYSTEM / V1</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

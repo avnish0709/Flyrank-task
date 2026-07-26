@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FERRO</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B1712;
+    --panel:#241F18;
+    --panel2:#2A241C;
+    --rust:#B5502B;
+    --rust-dim:#8A4127;
+    --parchment:#E8DFCE;
+    --bronze:#8A6F4E;
+    --line:rgba(232,223,206,0.14);
+    --radius:3px;
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:'Archivo',sans-serif;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .container{max-width:var(--maxw); margin:0 auto; padding:0 48px;}
+  h1,h2,h3{font-family:'Fraunces',serif;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(27,23,18,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between; padding:24px 0;}
+  .logo{font-family:'Fraunces',serif; font-weight:700; font-size:22px; letter-spacing:0.06em; color:var(--parchment);}
+  .logo span{color:var(--rust);}
+  .navlinks{display:flex; gap:40px; list-style:none;}
+  .navlinks a{
+    color:var(--bronze); text-decoration:none; font-size:12px; letter-spacing:0.14em;
+    text-transform:uppercase; font-weight:600; transition:all 160ms ease-out;
+  }
+  .navlinks a:hover{color:var(--parchment);}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:14px 30px; font-size:12px; font-weight:600; letter-spacing:0.12em;
+    text-transform:uppercase; border-radius:var(--radius); cursor:pointer;
+    border:1px solid transparent; transition:all 160ms ease-out; text-decoration:none;
+  }
+  .btn-solid{background:var(--rust); color:var(--parchment);}
+  .btn-solid:hover{filter:brightness(1.12); border-color:rgba(232,223,206,0.3);}
+  .btn-outline{background:transparent; color:var(--parchment); border:1px solid var(--bronze);}
+  .btn-outline:hover{border-color:var(--parchment); filter:brightness(1.1);}
+
+  section{padding:130px 0; border-bottom:1px solid var(--line);}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--rust); margin-bottom:18px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:''; width:16px; height:1px; background:var(--rust);}
+
+  /* ===== HERO ===== */
+  .hero{padding-top:100px; padding-bottom:110px;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:80px; align-items:center;}
+  .hero h1{
+    font-size:clamp(42px,5.2vw,68px); font-weight:600; line-height:1.06; letter-spacing:-0.01em;
+    color:var(--parchment);
+  }
+  .hero h1 em{font-style:italic; color:var(--rust); font-weight:400;}
+  .hero p{margin-top:26px; max-width:420px; font-size:16px; line-height:1.7; color:var(--bronze);}
+  .hero-actions{margin-top:40px; display:flex; gap:16px;}
+
+  .stat-row{display:flex; gap:44px; margin-top:56px; padding-top:32px; border-top:1px solid var(--line);}
+  .stat b{display:block; font-family:'Fraunces',serif; font-size:26px; color:var(--parchment); font-weight:600;}
+  .stat span{font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; color:var(--bronze); text-transform:uppercase;}
+
+  /* core-sample ring graphic — signature visual, no product photo needed */
+  .core-wrap{position:relative; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;}
+  .core-wrap svg{width:100%; height:100%;}
+  .core-label{
+    position:absolute; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.12em;
+    color:var(--bronze); text-transform:uppercase;
+  }
+  .core-label.tl{top:6%; left:4%;}
+  .core-label.br{bottom:6%; right:4%; text-align:right;}
+
+  /* ===== BENEFITS ===== */
+  .section-head{max-width:580px; margin-bottom:64px;}
+  .section-head h2{font-size:36px; font-weight:600; line-height:1.2; color:var(--parchment);}
+  .benefit-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
+  .benefit-card{background:var(--ink); padding:38px 32px; transition:all 160ms ease-out;}
+  .benefit-card:hover{background:var(--panel);}
+  .benefit-mark{width:28px; height:28px; border:1px solid var(--rust); border-radius:50%; margin-bottom:24px; position:relative;}
+  .benefit-mark::after{content:''; position:absolute; inset:7px; background:var(--rust); border-radius:50%;}
+  .benefit-card h3{font-size:17px; font-weight:600; color:var(--parchment); margin-bottom:12px; letter-spacing:0.01em;}
+  .benefit-card p{font-size:13.5px; line-height:1.7; color:var(--bronze);}
+
+  /* ===== FORMULATION — certificate of analysis ===== */
+  .cert{
+    border:1px solid var(--line); border-radius:var(--radius); background:var(--panel2);
+    padding:56px; position:relative;
+  }
+  .cert-top{display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:28px; border-bottom:1px solid var(--line); margin-bottom:8px;}
+  .cert-top h3{font-size:20px; color:var(--parchment); font-weight:600;}
+  .cert-top .mono{font-size:11px; color:var(--bronze); letter-spacing:0.08em; text-align:right; line-height:1.8;}
+  .cert-row{
+    display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 1fr; gap:20px;
+    padding:20px 0; border-bottom:1px solid var(--line); align-items:baseline;
+  }
+  .cert-row.head{
+    font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--rust);
+    padding-bottom:14px;
+  }
+  .cert-row div:first-child{color:var(--parchment); font-weight:500;}
+  .cert-row .mono{font-size:12.5px; color:var(--bronze);}
+  .cert-stamp{
+    position:absolute; top:40px; right:56px; width:74px; height:74px; border-radius:50%;
+    border:1.5px solid var(--rust); display:flex; align-items:center; justify-content:center;
+    transform:rotate(-8deg); opacity:0.8;
+  }
+  .cert-stamp span{font-family:'JetBrains Mono',monospace; font-size:8px; letter-spacing:0.08em; color:var(--rust); text-align:center; text-transform:uppercase; line-height:1.4;}
+
+  /* ===== CTA ===== */
+  .cta{border-bottom:none; padding:140px 0 120px;}
+  .cta-box{
+    text-align:center; max-width:620px; margin:0 auto; padding:70px 56px;
+    border:1px solid var(--line); border-radius:var(--radius);
+    background:radial-gradient(120% 100% at 50% 0%, rgba(181,80,43,0.10), transparent 60%);
+  }
+  .cta-box h2{font-size:36px; font-weight:600; color:var(--parchment); line-height:1.2;}
+  .cta-box p{margin:20px auto 36px; max-width:380px; font-size:14.5px; line-height:1.7; color:var(--bronze);}
+
+  footer{padding:36px 0;}
+  .footer-row{display:flex; justify-content:space-between; align-items:center;}
+  .footer-row span{font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; color:var(--bronze); text-transform:uppercase;}
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr; gap:56px;}
+    .benefit-grid{grid-template-columns:1fr;}
+    .cert-row{grid-template-columns:1.4fr 0.8fr 0.8fr;}
+    .cert-row div:nth-child(4){display:none;}
+    .navlinks{display:none;}
+    section{padding:80px 0;}
+    .container{padding:0 24px;}
+    .cert{padding:32px;}
+  }
+  :focus-visible{outline:1px solid var(--rust); outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">FERRO<span>.</span></div>
+      <ul class="navlinks">
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#formulation">Assay</a></li>
+        <li><a href="#cta">Order</a></li>
+      </ul>
+      <a href="#cta" class="btn btn-outline" style="padding:10px 24px;">Shop</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">99.9% Elemental Purity</span>
+        <h1>Load capacity,<br>not <em>volume</em>.</h1>
+        <p>FERRO is creatine monohydrate refined to pharmaceutical grade and assayed at every batch. One measured dose, verified purity, nothing to dilute it.</p>
+        <div class="hero-actions">
+          <a href="#cta" class="btn btn-solid">Order Now</a>
+          <a href="#formulation" class="btn btn-outline">View Assay</a>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b>5g</b><span>Per Serving</span></div>
+          <div class="stat"><b>99.9%</b><span>Purity</span></div>
+          <div class="stat"><b>0</b><span>Fillers</span></div>
+        </div>
+      </div>
+      <div class="core-wrap">
+        <svg viewBox="0 0 400 400">
+          <circle cx="200" cy="200" r="190" fill="none" stroke="#3a3226" stroke-width="1"/>
+          <circle cx="200" cy="200" r="150" fill="none" stroke="#3a3226" stroke-width="1"/>
+          <circle cx="200" cy="200" r="150" fill="none" stroke="#B5502B" stroke-width="1.5" stroke-dasharray="4 10" opacity="0.6"/>
+          <circle cx="200" cy="200" r="110" fill="none" stroke="#4a4030" stroke-width="1"/>
+          <circle cx="200" cy="200" r="72" fill="none" stroke="#6b5738" stroke-width="1"/>
+          <circle cx="200" cy="200" r="72" fill="#2A241C" stroke="none"/>
+          <circle cx="200" cy="200" r="38" fill="#B5502B" opacity="0.9"/>
+          <circle cx="200" cy="200" r="38" fill="none" stroke="#E8DFCE" stroke-width="0.5" opacity="0.4"/>
+          <line x1="200" y1="10" x2="200" y2="390" stroke="#3a3226" stroke-width="0.5"/>
+          <line x1="10" y1="200" x2="390" y2="200" stroke="#3a3226" stroke-width="0.5"/>
+        </svg>
+        <span class="core-label tl">CORE SAMPLE / 01</span>
+        <span class="core-label br">DENSITY VERIFIED<br>Fe—CREATINE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="benefits">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Why It Works</span>
+      <h2>Refined to a single standard, tested every batch.</h2>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="benefit-mark"></div>
+        <h3>Pharma-Grade Refinement</h3>
+        <p>Micro-filtered creatine monohydrate, refined past the industrial standard used by most brands.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-mark"></div>
+        <h3>Batch-Assayed</h3>
+        <p>Every batch is lab-tested for purity and heavy-metal content before it ships. Results published.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-mark"></div>
+        <h3>No Loading Phase</h3>
+        <p>Dosed for steady saturation from day one — no bloating phase, no unnecessary excess.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formulation">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Formulation</span>
+      <h2>Certificate of analysis, not a marketing claim.</h2>
+    </div>
+    <div class="cert">
+      <div class="cert-stamp"><span>Batch<br>Verified</span></div>
+      <div class="cert-top">
+        <h3>FERRO — Creatine Monohydrate</h3>
+        <div class="mono">BATCH NO. FR-0225-C<br>ASSAYED 07/2026</div>
+      </div>
+      <div class="cert-row head">
+        <div>Compound</div><div>Assay</div><div>Limit</div><div>Method</div>
+      </div>
+      <div class="cert-row">
+        <div>Creatine Monohydrate</div><div class="mono">99.94%</div><div class="mono">≥99.9%</div><div class="mono">HPLC</div>
+      </div>
+      <div class="cert-row">
+        <div>Creatinine</div><div class="mono">0.02%</div><div class="mono">≤0.5%</div><div class="mono">HPLC</div>
+      </div>
+      <div class="cert-row">
+        <div>Heavy Metals</div><div class="mono">&lt;1ppm</div><div class="mono">≤10ppm</div><div class="mono">ICP-MS</div>
+      </div>
+      <div class="cert-row" style="border-bottom:none;">
+        <div>Particle Size</div><div class="mono">200 mesh</div><div class="mono">180–220</div><div class="mono">Sieve</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="cta">
+  <div class="container">
+    <div class="cta-box">
+      <span class="eyebrow" style="justify-content:center;">Begin</span>
+      <h2>Start your first cycle.</h2>
+      <p>One canister, 60 servings, full assay included in the box. Cancel anytime before the next shipment.</p>
+      <a href="#" class="btn btn-solid">Order FERRO — 60 Servings</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <span>© FERRO LABORATORIES</span>
+      <span>BATCH SYSTEM / V1</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

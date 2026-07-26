@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>STILL</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=DotGothic16&family=Cormorant:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --c1:#F7F6F4;
+    --panel:#EDEBE7;
+    --c2:#1C1B19;
+    --gray:#8A8580;
+    --clay:#C65D3B;
+    --line:#E4E3E1;
+    --dim:#3A3937;
+    --radius:8px;
+    --maxw:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--c1);
+    color:var(--c2);
+    font-family:'Instrument Sans',sans-serif;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .container{max-width:var(--maxw); margin:0 auto; padding:0 40px;}
+  .dot{font-family:'DotGothic16',monospace;}
+  .serif{font-family:'Cormorant',serif; font-style:italic;}
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--c1);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between; padding:24px 0;}
+  .logo{font-size:14px; font-weight:600; letter-spacing:0.28em;}
+  .navlinks{display:flex; gap:36px; list-style:none;}
+  .navlinks a{
+    color:var(--gray); text-decoration:none; font-size:12px; letter-spacing:0.14em;
+    text-transform:uppercase; font-weight:500; transition:all 160ms ease-out;
+  }
+  .navlinks a:hover{color:var(--c2);}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:13px 28px; font-size:13px; font-weight:500;
+    border-radius:999px; cursor:pointer;
+    border:1px solid transparent; transition:all 160ms ease-out; text-decoration:none;
+  }
+  .btn-solid{background:var(--c2); color:var(--c1);}
+  .btn-solid:hover{filter:brightness(1.25);}
+  .btn-outline{background:transparent; color:var(--c2); border:1px solid var(--line);}
+  .btn-outline:hover{border-color:var(--c2);}
+
+  section{padding:176px 0;}
+  .section-divider{border-top:1px solid var(--line);}
+
+  /* ===== HERO — Apple: one headline, one object, huge air ===== */
+  .hero{padding-top:140px; padding-bottom:88px; text-align:center;}
+  .hero .dot{
+    font-size:11px; letter-spacing:0.2em; color:var(--gray); text-transform:uppercase;
+    display:inline-flex; align-items:center; gap:8px; margin-bottom:40px;
+  }
+  .hero .dot .status{width:6px; height:6px; border-radius:50%; background:var(--clay); display:inline-block;}
+  .hero h1{
+    font-size:clamp(56px,8.5vw,120px); font-weight:600; line-height:0.94; letter-spacing:-0.035em;
+  }
+  .hero p{
+    max-width:460px; margin:32px auto 0; font-size:19px; line-height:1.75; color:var(--gray); font-weight:400;
+  }
+  .hero-actions{margin-top:48px; display:flex; gap:14px; justify-content:center;}
+
+  /* centered product frame — the single object */
+  .object-frame{
+    margin:112px auto 0; max-width:520px; aspect-ratio:1/1.05;
+    border-radius:calc(var(--radius) * 3);
+    background:linear-gradient(165deg, #FDFCFB 0%, var(--panel) 100%);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .object-frame .placeholder{
+    font-size:12px; letter-spacing:0.1em; color:var(--gray); text-transform:uppercase; text-align:center;
+  }
+  .object-frame .tag{
+    position:absolute; font-family:'DotGothic16',monospace; font-size:10px; letter-spacing:0.08em;
+    color:var(--gray); text-transform:uppercase;
+  }
+  .object-frame .tag.tl{top:24px; left:24px;}
+  .object-frame .tag.br{bottom:24px; right:24px; text-align:right;}
+
+  /* ===== TRANSPARENCY PANEL — Nothing: exposed spec, dot-matrix status lights ===== */
+  .transparency{background:var(--c2); color:var(--c1); border-radius:calc(var(--radius)*2); padding:72px;}
+  .transparency-head{display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:56px; flex-wrap:wrap; gap:20px;}
+  .transparency-head h2{font-size:34px; font-weight:600; letter-spacing:-0.02em; line-height:1.2; max-width:440px;}
+  .transparency-head .dot{font-size:11px; letter-spacing:0.18em; color:var(--gray); text-transform:uppercase;}
+  .spec-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1px; background:var(--dim); border-radius:var(--radius); overflow:hidden;}
+  .spec-cell{background:var(--c2); padding:24px 20px;}
+  .spec-cell .lights{display:flex; gap:5px; margin-bottom:24px;}
+  .spec-cell .lights span{width:5px; height:5px; border-radius:50%; background:var(--dim);}
+  .spec-cell .lights span.on{background:var(--clay);}
+  .spec-cell .label{font-family:'DotGothic16',monospace; font-size:10px; letter-spacing:0.14em; color:var(--gray); text-transform:uppercase; margin-bottom:8px;}
+  .spec-cell .value{font-size:15px; font-weight:500; letter-spacing:-0.01em;}
+
+  /* ===== INGREDIENT / AESOP EDITORIAL ===== */
+  .apothecary{display:grid; grid-template-columns:minmax(280px,0.9fr) minmax(320px,1.1fr); gap:112px; align-items:center;}
+  .apothecary .serif{font-size:34px; line-height:1.45; color:var(--c2); font-weight:400; letter-spacing:-0.005em;}
+  .ing-list{display:flex; flex-direction:column;}
+  .ing-row{display:flex; justify-content:space-between; padding:24px 0; border-bottom:1px solid var(--line);}
+  .ing-row:first-child{border-top:1px solid var(--line);}
+  .ing-row .name{font-size:15px; font-weight:500; letter-spacing:-0.005em;}
+  .ing-row .dose{font-family:'DotGothic16',monospace; font-size:12px; letter-spacing:0.06em; color:var(--gray);}
+
+  /* ===== CTA — Aesop: quiet, no shouting ===== */
+  .cta{text-align:center; padding-bottom:192px;}
+  .cta .dot{font-size:11px; letter-spacing:0.2em; color:var(--gray); text-transform:uppercase; margin-bottom:28px; display:block;}
+  .cta h2{font-size:clamp(34px,4.5vw,56px); font-weight:600; letter-spacing:-0.025em; line-height:1.1; max-width:580px; margin:0 auto;}
+  .cta p{max-width:400px; margin:24px auto 44px; font-size:16px; line-height:1.75; color:var(--gray);}
+
+  footer{padding:36px 0; border-top:1px solid var(--line);}
+  .footer-row{display:flex; justify-content:space-between; align-items:center;}
+  .footer-row span{font-family:'DotGothic16',monospace; font-size:10px; letter-spacing:0.08em; color:var(--gray); text-transform:uppercase;}
+
+  @media (max-width:900px){
+    .apothecary{grid-template-columns:1fr; gap:56px;}
+    .navlinks{display:none;}
+    section{padding:100px 0;}
+    .container{padding:0 24px;}
+    .transparency{padding:36px;}
+  }
+  :focus-visible{outline:1px solid var(--c2); outline-offset:3px;}
+
+  /* ===== scroll reveal — fade + scale + slide-up, triggered by IntersectionObserver ===== */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px) scale(0.97);
+    transition:opacity 700ms cubic-bezier(0.16,1,0.3,1), transform 700ms cubic-bezier(0.16,1,0.3,1);
+    will-change:opacity, transform;
+  }
+  .reveal.in-view{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">STILL</div>
+      <ul class="navlinks">
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#ingredients">Ingredients</a></li>
+        <li><a href="#cta">Order</a></li>
+      </ul>
+      <a href="#cta" class="btn btn-outline" style="padding:10px 22px;">Shop</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="dot"><span class="status"></span>ONE CAPSULE. ONE PURPOSE.</span>
+    <h1>Do less.<br>Feel more.</h1>
+    <p>STILL is a single adaptogen formula, reduced to what the body actually uses. Nothing added to make the label look fuller.</p>
+    <div class="hero-actions">
+      <a href="#cta" class="btn btn-solid">Order Now</a>
+      <a href="#benefits" class="btn btn-outline">See Inside</a>
+    </div>
+    <div class="object-frame">
+      <!-- Replace with: <img src="YOUR_IMAGE_PATH" alt="STILL capsule"> -->
+      <div class="placeholder">Product Object<br>Awaiting Image</div>
+      <span class="tag tl">STILL — 01</span>
+      <span class="tag br">30 CAPSULES<br>1 FORMULA</span>
+    </div>
+  </div>
+</section>
+
+<section id="benefits">
+  <div class="container">
+    <div class="transparency">
+      <div class="transparency-head reveal">
+        <h2>Everything the capsule does, shown, not claimed.</h2>
+        <span class="dot">BENEFITS — VERIFIED</span>
+      </div>
+      <div class="spec-grid">
+        <div class="spec-cell reveal" style="transition-delay:0ms;">
+          <div class="lights"><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+          <div class="label">Stress Response</div>
+          <div class="value">Lowers cortisol, clinically dosed</div>
+        </div>
+        <div class="spec-cell reveal" style="transition-delay:80ms;">
+          <div class="lights"><span class="on"></span><span class="on"></span><span></span><span></span></div>
+          <div class="label">Absorption</div>
+          <div class="value">Boosted with black pepper extract</div>
+        </div>
+        <div class="spec-cell reveal" style="transition-delay:160ms;">
+          <div class="lights"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>
+          <div class="label">Verification</div>
+          <div class="value">Third-party batch tested</div>
+        </div>
+        <div class="spec-cell reveal" style="transition-delay:240ms;">
+          <div class="lights"><span></span><span></span><span></span><span></span></div>
+          <div class="label">Fillers</div>
+          <div class="value">None added, ever</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ingredients">
+  <div class="container">
+    <div class="apothecary">
+      <p class="serif reveal">"The fewer things you take, the more attention each one deserves."</p>
+      <div class="ing-list">
+        <div class="ing-row reveal" style="transition-delay:0ms;"><span class="name">Ashwagandha KSM-66</span><span class="dose">600 MG</span></div>
+        <div class="ing-row reveal" style="transition-delay:70ms;"><span class="name">Black Pepper Extract</span><span class="dose">5 MG</span></div>
+        <div class="ing-row reveal" style="transition-delay:140ms;"><span class="name">Vegetable Capsule</span><span class="dose">1 SHELL</span></div>
+        <div class="ing-row reveal" style="transition-delay:210ms;"><span class="name">Everything Else</span><span class="dose">NONE</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="cta">
+  <div class="container">
+    <div class="reveal">
+      <span class="dot">Begin</span>
+      <h2>One capsule a day. That's the whole routine.</h2>
+      <p>30 capsules, one formula, full spec sheet in the box.</p>
+      <a href="#" class="btn btn-solid">Order STILL — 30 Capsules</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <span>© STILL</span>
+      <span>FORMULA REV. 3</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
