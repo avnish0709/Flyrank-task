@@ -1,0 +1,94 @@
+I want to organize my GitHub repository professionally for my FL-01 Prompt Engineering assignment.
+
+Please generate a complete repository structure, README.md, and supporting documentation.
+
+Repository Requirements:
+
+Repository Name:
+FL-01-Prompt-Engineering
+
+The repository should contain the following structure:
+
+FL-01-Prompt-Engineering/
+│
+├── README.md
+│
+├── Prompt_Iteration_Log.pdf
+│
+├── prompts/
+│   ├── 01_naive_prompt.md
+│   ├── 02_role_assignment.md
+│   ├── 03_context_and_motivation.md
+│   ├── 04_few_shot_examples.md
+│   ├── 05_output_structure.md
+│   ├── 06_step_decomposition.md
+│   └── final_prompt.md
+│
+├── outputs/
+│   ├── claude/
+│   │   ├── aefrm.html
+│   │   ├── ferro.html
+│   │   ├── depth.html
+│   │   └── still.html
+│   │
+│   └── chatgpt/
+│       └── novafuel.html
+│
+├── screenshots/
+│   ├── claude/
+│   │   ├── aefrm.png
+│   │   ├── ferro.png
+│   │   ├── depth.png
+│   │   └── still.png
+│   │
+│   └── chatgpt/
+│       └── novafuel.png
+│
+└── comparison/
+    └── claude-vs-chatgpt.md
+
+Generate the following:
+
+1. A professional README.md suitable for GitHub.
+
+The README should include:
+
+- Project title
+- About this assignment
+- Assignment objective
+- Prompt engineering techniques used
+- Repository structure
+- Models used (Claude and ChatGPT)
+- Brief explanation of every folder
+- How to view the HTML files locally
+- Learning outcomes
+- Conclusion
+
+2. Create the content for claude-vs-chatgpt.md.
+
+This comparison should objectively compare:
+
+- Tone
+- Accuracy
+- Prompt adherence
+- HTML structure
+- CSS quality
+- Visual design
+- Responsiveness
+- Creativity
+- Code readability
+- Failure points
+- Final verdict
+
+The comparison should state that Claude generated multiple visual directions (AEFRM, FERRO, DEPTH, STILL) before producing the final design, 
+while ChatGPT generated one complete landing page (NovaFuel).
+
+3. Explain why keeping every HTML file in the repository demonstrates the iterative design process.
+
+4. Make everything look professional enough for recruiters reviewing my GitHub profile.
+
+Use clean Markdown formatting.
+
+Do not use unnecessary emojis.
+
+Write in a professional software engineering style.
