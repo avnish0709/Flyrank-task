@@ -1,0 +1,57 @@
+# Portfolio Content Map
+
+**One-line claim:** Building AI-powered software that solves real problems through thoughtful engineering and practical automation.
+**Week 1 goal:** Get recruiters, hiring managers, and collaborators to make contact — internship, full-time, freelance, or project work.
+
+---
+
+## Page 1 — Home (single-page portfolio, sections in order)
+
+### 1. Hero
+- **Purpose:** State the claim in under 5 seconds, establish tone (calm, confident, engineer — not marketer).
+- **CTA:** "View my work" → scrolls to Projects.
+- **Supports the goal by:** Filtering — the right visitor keeps scrolling; nobody reaches Contact confused about what you do.
+
+### 2. About
+- **Purpose:** Put a real person behind the claim. Two or three sentences: what you're building toward, your current focus (AI Engineering), and how you work.
+- **CTA:** None primary — a soft link to your resume/LinkedIn.
+- **Supports the goal by:** Building the trust that makes a stranger comfortable reaching out. Recruiters skim this to decide if you're a real, hireable person before they read further.
+
+### 3. Projects / Case Studies
+Lead with strongest, most complete evidence first:
+
+1. **Focus Flow** (lead project) — AI-powered productivity/task management web app. Strongest because it's a full built product with a real, working UI, a genuine personal-use result (measurable drop in distraction time), and a deploy-ready status. This is your proof, not your promise.
+2. **AI Agents Suite** (Customer Support Agent, Automated Expense Agent, Ambient Expense Auditor) — built with Google ADK 2.0 + Gemini 2.5 Flash. Strong second because it directly demonstrates applied AI engineering, tool-routing, and real debugging (the shipping/weather mismatch fix is a great "how I think" detail for a write-up).
+3. **MallPark 360** — Smart Parking Management System with payment integration. Good third: shows full-stack systems thinking (DFDs across three levels) and real-world payment integration, even though it's earlier-stage work.
+4. **Handwriting-to-Text Converter** — smallest, most foundational. Include only if space allows, framed briefly as an early applied-ML project rather than a headline piece.
+
+- **Purpose:** This section IS the proof for your claim — everything else on the page is context around this.
+- **CTA per project card:** "View project" / "Read case study" (whichever exists), plus a repo/live-demo link where available.
+- **Supports the goal by:** This is what turns "sounds credible" into "I want to talk to this person." A hiring manager who opens one case study and finishes it is your warmest lead.
+
+### 4. Skills
+- **Purpose:** Fast, scannable confirmation of stack — for the recruiter who's already convinced and just needs to check boxes (Next.js, TypeScript, Python, AI/ML tooling, etc.).
+- **CTA:** None — this section shouldn't compete for action, only confirm fit.
+- **Supports the goal by:** Removes a silent objection ("does he actually know X?") before it can stop someone from reaching out.
+
+### 5. Experience
+- **Purpose:** Anchor credibility with real context — FlyRank AI internship, coursework/certifications in progress, academic program.
+- **CTA:** None.
+- **Supports the goal by:** Signals you're already operating in a real environment, not just building solo — lowers perceived risk for anyone considering an internship or freelance hire.
+
+### 6. Contact
+- **Purpose:** Make the action stupidly easy — this is where Week 1's entire goal is won or lost.
+- **CTA (primary, page-level):** "Get in touch" — direct email link or simple form, plus LinkedIn/GitHub icons. One clear action, not three competing ones.
+- **Supports the goal by:** It's the literal destination of the goal — every section above exists to funnel a convinced visitor here without friction.
+
+---
+
+## Why one page, not multiple
+
+For a Week 1 goal built entirely around "get contacted," a single scrolling page outperforms a multi-page site: it removes navigation decisions, 
+keeps the CTA reachable from anywhere via scroll, and lets you track one clear funnel (Hero → Projects → Contact) instead of splitting attention across pages.
+If you later add a blog or detailed case-study subpages, those become secondary pages linked from the Projects cards — but the core site stays one page with 
+one job.
+
+--- 
+
