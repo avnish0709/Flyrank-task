@@ -23,3 +23,72 @@ Have Sucessfully Delivered
 - A real, reachable URL exists, opened on a second device to prove it.
 - It matches the chosen stack from the previous assignment.
 - The Project has the identity kit, case studies, and content map loaded for next week.
+
+---
+
+# Portfolio Project 
+
+## Who this is for
+Avnish Zanjal — third-year AI & ML engineering student, intern at FlyRank AI, building
+a portfolio to prove one specific claim to a specific hiring/collaboration target.
+
+## Constraints (non-negotiable)
+- Free tools only.
+- Beginner — must be able to fully understand, maintain, and explain every line built.
+- Professional, responsive, easy to expand as skills grow.
+- Contact form required at launch. No database or authentication needed for v1.
+
+## Stack decision (current)
+**React + Vite + Netlify.**
+
+History: originally chose plain HTML/CSS/JS (Option 1) specifically to avoid learning
+npm/terminal while also shipping the portfolio under time pressure — the stated
+preference was to build terminal/npm comfort as a *separate, lower-stakes* project first.
+That decision was then reversed in favor of React + Vite + Netlify. Worth re-confirming
+this is still the intended stack before continuing, since it's a real trade-off against
+the original stated preference (learning npm now, under portfolio pressure, instead of
+later as its own project).
+
+If continuing with React + Vite:
+- Today's goal was: get Node.js installed, verify with `node -v` and `npm -v`, then scaffold
+  a blank Vite + React project showing just the name, deployed live on Netlify's free tier.
+- Last completed step: Step 1 (Node.js install + verification). Confirm `node -v` / `npm -v`
+  output before resuming at Step 2 (scaffolding the Vite project).
+
+## Design system (locked — do not change without asking)
+- Headings: Space Grotesk SemiBold — H1 48px / H2 36px / H3 28px
+- Body: Inter Regular, 18px, 1.7 line-height
+- Labels: Inter Medium, 14px
+- Colors: text `#111827`, background `#F9FAFB`, links `#047857`, accent `#10B981`
+- Spacing: 96px between sections, 48px between major elements, 24px between related items
+- Border radius: 12px
+- Design principle: "quiet, modern, and confident — keep the interface minimal so the work
+  remains the focus"
+- Hero proof statement: "Solves real problems with full-stack development and AI
+  automation, built to be maintained, not just shipped."
+
+## Content map
+**Home:** Hero, one-line claim, Featured Project (MallPark360), Selected Projects, Skills,
+Experience, Contact CTA
+
+**About:** Professional photo, About Me, Education, Skills & Interests, Resume download
+
+**Projects:** MallPark360 (featured), AI-Powered Scheduling & Meeting Coordinator,
+internship work (when completed), other projects, GitHub links, live demos, screenshots
+
+**Experience:** FlyRank Front-End AI Internship, Education, Certifications
+
+**Contact:** contact form (Formspree/Web3Forms — no backend needed), email, GitHub,
+LinkedIn
+
+## Must show
+Real project screenshots, GitHub repos, live demo links, long-form case studies per
+project, professional portfolio images.
+
+## Assets already built (plain HTML/CSS versions — prototypes, not the final stack)
+- `style.css` — CSS custom properties matching the design system above, plus a base
+  reset (focus-visible states, prefers-reduced-motion support) and layout primitives
+  (`.container`, `.section`, `.stack`, `.card`)
+- `hero-preview.html` — standalone hero section prototype (eyebrow label, name, claim,
+  two CTA buttons), fully responsive, built to visually validate the design system
+  before committing to a stack
