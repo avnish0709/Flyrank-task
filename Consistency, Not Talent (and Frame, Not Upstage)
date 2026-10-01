@@ -1,0 +1,127 @@
+PROJECT: Avnish Zanjal's portfolio website
+
+Build a personal portfolio site in React + Vite, hosted on Netlify. Stack must
+stay 100% free tools. I'm a beginner — keep it simple enough that I can fully
+understand, maintain, and explain every part. No backend/database/auth needed
+for v1 (a working contact form is the only exception) — structure it so
+backend features (login, CMS, saved data) can be added within 2-3 years
+without a rewrite.
+
+GIT / GITHUB
+- Initialize a git repo; .gitignore for node_modules, dist, .env
+- Use Conventional Commits for every commit message
+- Write a clean, professional README.md: what the project is, the stack, how
+  to run it locally, how to deploy
+- Get it ready to push to a new GitHub repo (ask me for the repo name/remote
+  before pushing)
+
+DESIGN SYSTEM (locked — don't deviate)
+Fonts: Space Grotesk (SemiBold, headings) / Inter (Regular, body) — Google Fonts
+Colors:
+  --color-main: #2E4057
+  --color-text: #16181D
+  --color-bg: #FAFAFA
+  --color-accent: #4FD1C5   (links/hover states ONLY, nowhere else)
+Spacing (8px base unit):
+  sections: 96px desktop / 48px mobile
+  major elements: 48px / 32px mobile
+  related items: 24px
+  border-radius: 12px
+Logo: "AZ" wordmark in Space Grotesk SemiBold, no icon.
+Mood: calm, precise, technical — the interface disappears so the work is the
+loudest thing on the page. No AI-SaaS visual clichés (glowing gradients,
+robot icons, stock "AI" imagery).
+
+HERO SPEC
+H1 (claim): 56px desktop / 36px mobile, Space Grotesk SemiBold, line-height
+1.1, letter-spacing -0.02em
+Subhead: 20px / 17px mobile, Inter Regular, line-height 1.6
+CTA label: 16px, Inter Medium
+Hero top padding 120px / 64px mobile, headline→subhead gap 24px,
+subhead→CTA gap 32px, hero bottom padding 96px / 48px mobile, max content
+width 720px
+
+CONTENT MAP
+Home: Hero (claim + subhead + CTA) → Featured Project (Mall Park 360) →
+  Selected Projects (Coordinate, Focus Flow, AI Agents) → Skills →
+  Experience snippet → Contact CTA
+About: Photo, About Me, Education, Skills & Interests, Resume download
+Projects: Full case studies — Mall Park 360 (featured), Coordinate, Focus
+  Flow, AI Agents — each with repo link / live demo / screenshots
+Experience: FlyRank AI internship, Education, Certifications
+Contact: Form, email, GitHub, LinkedIn
+
+THE ONE ACTION
+Every CTA ladders to: "Book an intro call" — exact label, used consistently
+everywhere.
+
+HEADLINE CLAIM (not finalized — make it a single constant so I can swap it
+in one place)
+Using as placeholder: "I build AI-powered web experiences that solve real
+problems."
+Other options still in play: "I build AI-powered web tools — then ship
+them." / "Real problems. AI-powered fixes. Shipped, not just demoed." /
+"I turn ideas into AI-powered products people actually use." / "I build,
+test, and ship AI-powered web tools." / "Practical AI. Real products.
+Built to be used." / "From idea to shipped product — AI does the work."
+/ "I build AI-powered tools people keep using, not just try once." /
+"AI-powered products, built for real use, not demos." / "I use AI to
+build web tools people actually need."
+
+PROJECT CONTENT (real — use as-is)
+- Mall Park 360 (featured): A real-time, role-based parking management
+  system for malls. Firebase (Firestore + Auth) backend, vanilla JS
+  frontend, 10 interconnected files. Five role dashboards (Supervisor,
+  Officer, Entry/Exit Attendant, Technology Operator) with password-gated
+  access, a BookMyShow-style booking grid, live occupancy/revenue analytics
+  via Chart.js. Business logic: GST-inclusive income tracking, lift-
+  proximity surcharges, emergency overrides scoped to one role. An earlier
+  frontend-only v1 (vanilla HTML/CSS/JS, ticketing + QR codes) exists —
+  fold it in as "earlier iteration," don't list separately.
+- Coordinate: An AI scheduling agent that finds open slots, handles
+  rescheduling, and sends confirmations. One LangGraph agent serves both a
+  silent background scheduler and a chat interface (FastAPI backend,
+  Next.js frontend, OpenAI function calling). Landing page is live;
+  backend wiring is in progress — say so honestly, don't claim it's done.
+- Focus Flow: A calming, nature-rain productivity app — Pomodoro timer,
+  task manager with priorities, focus music panel. Next.js 14, TypeScript,
+  Tailwind. Used personally; screen time dropped from 7–8 hrs/day to
+  4–5 hrs/day. An AI shorthand-command layer is still in progress.
+- AI Agents (Google ADK + Gemini): Three agents — customer support,
+  automated expense tracking, ambient expense auditing — built on Google
+  ADK 2.0 and Gemini 2.5 Flash via the Kaggle x Google 5-Day course. One
+  debugging story worth keeping: a shipping-status question returned a
+  weather report due to a mismatched tool binding, traced line by line
+  over two days. Not deployed — don't claim otherwise.
+
+SKILLS
+Frontend: React, JavaScript, HTML, CSS, Tailwind CSS
+Backend & Infra: Node.js, FastAPI, Firebase/Firestore, Docker
+AI & Agents: LangGraph, OpenAI function calling, Google ADK, Gemini 2.5 Flash
+
+EXPERIENCE
+FlyRank AI — Front-End AI Intern — React and Tailwind development alongside
+AI-assisted workflows: debugging, documentation, DSA practice.
+
+DESIGN REFERENCE
+A static HTML preview of the home page already exists in this design
+system — use it as the layout/behavior reference, rebuilt as proper React
+components: https://claude.ai/artifact/YJ3Hfv3omgLTo4gS4sftdR
+
+STILL NEEDED FROM ME (leave as clearly marked placeholders)
+- Final headline claim
+- Real email / GitHub / LinkedIn URLs
+- Screenshots: Mall Park 360 dashboards, Coordinate landing page, Focus
+  Flow UI
+- Live demo links once each project is deployed
+- Repo links for the 3 AI agents (pending certification)
+
+TASK
+1. Scaffold the Vite + React project
+2. Build as reusable components (Nav, Hero, FeaturedProject, ProjectList,
+   Skills, Experience, About, Contact, Footer) with content pulled from a
+   separate content file, not hardcoded in JSX
+3. Implement light/dark mode, mobile nav, and the responsive spacing
+   scale above
+4. Set up git with Conventional Commits, write the README, and get it
+   ready to push to GitHub
