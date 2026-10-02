@@ -1,0 +1,80 @@
+Choosing how to build is itself an AI-fluency skill, maybe the most useful one. The win isn't getting AI to pick for you; it's giving it your real constraints, including how your work must be shown , making it lay out options and trade-offs, and deciding for yourself with eyes open. That habit outlasts this one site.
+Give AI your four constraints: free only , your honest skill level , what your portfolio needs to do (paste your sitemap and content map), and how your work must be displayed (image galleries, an embedded demo, a code repo, long-form reading). State whether anything has to be dynamic yet.
+Make it produce three stack options, simplest to most powerful , each with: how you'd build, where you'd host (free), whether it needs a backend, and the real trade-off.
+Pressure-test the front-runner: what breaks if I pick the simplest? what do I maintain if I pick the most powerful? can I finish in two weeks? does it show my work the way it needs to be shown?
+Decide, and write a short rationale in your own words: the stack you chose, the two you didn't, and why, including "can I maintain this" and "does it show my work well."
+
+# Portfolio Website — Work Completed
+
+## Week 3 — Foundations & Identity
+
+* Defined the portfolio’s core positioning and one-line proof statement.
+* Created the portfolio content map and decided the structure for:
+
+  * Home
+  * About
+  * Projects
+  * Experience
+  * Contact
+* Defined the main CTA: **“Book an intro call”**.
+* Created the visual identity system:
+
+  * **Heading Font:** Space Grotesk
+  * **Body Font:** Inter
+  * **Main:** `#374151`
+  * **Near-black:** `#171717`
+  * **Near-white:** `#FAFAF9`
+  * **Accent:** `#0F766E`
+* Defined typography, spacing, buttons, cards, and overall visual guidelines.
+* Planned the image strategy:
+
+  * Real project screenshots for work.
+  * Real profile photo.
+  * Minimal generated visuals only where needed for connective design.
+  * Avoided generic AI stock imagery.
+
+## Week 4 — Stack Selection & Deployment
+
+* Compared three possible technology stacks:
+
+  1. HTML/CSS/JavaScript + Netlify
+  2. React + Vite + Netlify
+  3. Next.js + Vercel
+* Selected **React + Vite + Netlify**.
+* Chose the stack because it provides reusable components while remaining understandable and maintainable.
+* Decided that a backend is **not required at launch**.
+* Built the portfolio website using React and Vite.
+* Deployed the website successfully on Netlify.
+* Confirmed that the deployed website can be accessed outside the development environment.
+
+## Portfolio Structure
+
+The website includes:
+
+* Navigation
+* Hero section
+* Featured project
+* Selected projects
+* Skills
+* Experience
+* About section
+* Contact section
+* Mobile navigation
+* Light/dark mode
+* Project-focused content and CTAs
+
+## Projects Planned / Featured
+
+* **MallPark360** — Featured project
+* **Coordinate** — AI-focused project
+* **Focus Flow** — Productivity/screen-time project
+* **AI Agents** — AI learning/project work
+
+## Current Status
+
+The portfolio has moved from planning and identity work into the **built and deployed stage**.
+
+**Tech Stack:** React + Vite
+**Hosting:** Netlify
+**Backend:** Not required at launch
+**Primary Goal:** Present practical projects through case studies, screenshots, live demos, GitHub repositories, and clear explanations.
